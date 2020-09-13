@@ -1,17 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './component/App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class Calculator extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={unit:'Fahrenheit',temp:0};
+        this.handleC=this.handleC.bind(this);
+        this.handleF=this.handleF.bind(this);
+    }
+    handleF(e){
+        this.setState({unit:'Fahrenheit',temp:e.target.value});
+    }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    handleC(e){
+        this.setState({unit:'Celsius',temp:e.target.value});
+    }
+  
+    
+    render(){
+        const temp= this.state.temp;
+        const unit=this.state.unit;
+        let celsius;
+        let fahrenheit;
+
+        //f to c
+        if(unit==='Fahrenheit'){
+            celsius =(temp - 32) * 5/9;
+        }else{
+            celsius=temp;
+        }
+        //c to f
+        if(unit==='Celsius'){
+            fahrenheit = temp *9/5 + 32;
+        }else{
+            fahrenheit = temp;
+        }
+        return(
+            
+        <div>
+            <h1>Fahrenheit</h1>
+            <input value={celsius} onChange={this.handleF}></input>
+            <h1>Celsius</h1>
+            <input value={fahrenheit} onChange={this.handleC}></input>
+        </div>
+        )
+        
+    }
+}
+ ReactDOM.render(<Calculator/>,document.getElementById('root'));
+
