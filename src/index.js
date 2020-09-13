@@ -37,11 +37,15 @@ class Calculator extends React.Component{
         }
         return(
             
-        <div>
-            <h1>Fahrenheit</h1>
+        <div id="content">
+            <h1>Temperature Converter</h1>
+            <div id="input">
+            <h2>Fahrenheit</h2>
             <input value={fahrenheit} onChange={this.handleF}></input>
-            <h1>Celsius</h1>
+            <h2>Celsius</h2>
             <input value={celsius} onChange={this.handleC}></input>
+            </div>
+            
         </div>
         )
         
