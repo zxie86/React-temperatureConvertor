@@ -1,15 +1,19 @@
 
+body{
+  background-color: rgb(192, 240, 178);
 
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
 }
 #root{
   padding-top:20px;
+  
 }
 #content{
-  padding-top:880px;
-  background-color:red;
+  padding:10%;
 }
 #input{
   display: inline;
